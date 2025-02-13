@@ -3,14 +3,15 @@ import Router from "@koa/router";
 import path from "path";
 import serve from "koa-static";
 import { logger } from "./src/infrastructure/logger";
-import { formatBody, SUCCESS_CODE } from "./service/bodyFormatted";
-
+import { registerController } from "./src/controller";
 async function main() {
   const app = new Koa();
   const router = new Router();
+
   // 设置静态文件目录
   const staticPath = path.join(__dirname, "./assets"); // 假设图片存放在 public 目录
   app.use(serve(staticPath));
+
   //错误
   app.use(async (ctx, next) => {
     try {
@@ -25,22 +26,11 @@ async function main() {
         });
       }
       // 捕获错误并处理
-      ctx.body = {
-        code: -1,
-        msg: "服务器内部错误",
-      };
+      ctx.body = '服务器内部错误'
     }
   });
 
   app.use(router.routes()).use(router.allowedMethods());
-
-  router.get("/hello", async (ctx) => {
-    ctx.body = formatBody({
-      code: SUCCESS_CODE,
-      msg: "hello",
-      data: "hello",
-    });
-  });
 
   registerController();
 

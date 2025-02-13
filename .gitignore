@@ -8,3 +8,4 @@ assets/*.png
 assets/*
 prisma/migrations
 .DS_Store
+/src/infrastructure/logger/logs/*
