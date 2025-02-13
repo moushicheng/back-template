@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/Users/mosh/Desktop/mosh/liveman/apps/liveman-server/logger/logs/.d2877bf3ad831abd04bfd65f87ea453c5edb0a69-audit.json",
+    "files": [
+        {
+            "date": 1739434888111,
+            "name": "/Users/mosh/Desktop/mosh/liveman/apps/liveman-server/logger/logs/2025_02_13.log",
+            "hash": "ac4ab97d9c05d0351ccf65852aee4f029630c57974086baa500d534a8c3cafa7"
+        }
+    ],
+    "hashType": "sha256"
+}

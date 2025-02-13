@@ -10,6 +10,12 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Order {
-  id Int @id @default(autoincrement())
+model code {
+  code String @id @unique @db.VarChar(48) // 激活码作为唯一标识
+  times Int // 使用次数
+}
+
+model user {
+  user_id Int @id @default(autoincrement()) // 用户ID
+  finger String @db.VarChar(100) // 用户指纹
 }

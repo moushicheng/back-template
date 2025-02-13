@@ -2,10 +2,9 @@ import Koa from "koa";
 import Router from "@koa/router";
 import path from "path";
 import serve from "koa-static";
-import { logger } from "./logger";
+import { logger } from "./src/infrastructure/logger";
 import { formatBody, SUCCESS_CODE } from "./service/bodyFormatted";
-import { createOrder } from "./db/order";
-import { getRedisClient } from "./radis";
+
 async function main() {
   const app = new Koa();
   const router = new Router();
@@ -41,16 +40,12 @@ async function main() {
       msg: "hello",
       data: "hello",
     });
-    //mysql
-    // createOrder();
-
-    //redis
-    // const client = await getRedisClient();
-    // client.SET("key", "value");
   });
 
-  app.listen(3004, () => {
-    console.log("Server running on http://localhost:3004");
+  registerController();
+
+  app.listen(3000, () => {
+    console.log("Server running on http://localhost:3000");
   });
 }
 main();

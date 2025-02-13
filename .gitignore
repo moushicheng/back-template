@@ -7,3 +7,4 @@ nginx.conf
 assets/*.png
 assets/*
 prisma/migrations
+.DS_Store
